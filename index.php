@@ -18,6 +18,11 @@ $searchParams = [
     'body' => [
         'size' => $limit,
         'from' => $limit * ($page - 1),
+        'sort' => [
+            'ip_dec' => [
+                'order' => 'asc',
+            ],
+        ],
         'filter' => [
             'range' => [
                 'ip_dec' => getPrefixRange($prefix),

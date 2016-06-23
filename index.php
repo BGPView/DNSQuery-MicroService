@@ -1,12 +1,10 @@
 <?php
 
-$esHosts = ['localhost:9200'];
-
-
 use Elasticsearch\ClientBuilder;
 
 require 'vendor/autoload.php';
 require 'functions.php';
+require 'config.php';
 
 $client = ClientBuilder::create()->setHosts($esHosts)->build();
 
@@ -38,6 +36,8 @@ foreach ($searchResults['hits']['hits'] as $searchResult) {
 $data = [
     'query_time' => $searchResults['took'] . 'ms',
     'total' => $searchResults['hits']['total'],
+    'limit' => $limit,
+    'page' => $page,
     'records' => $records,
 ];
 

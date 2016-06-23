@@ -38,7 +38,7 @@ foreach ($searchResults['hits']['hits'] as $searchResult) {
 $data = [
     'query_time' => $searchResults['took'] . 'ms',
     'total' => $searchResults['hits']['total'],
-    'records' => $domains,
+    'records' => $records,
 ];
 
 header('Content-Type: application/json');

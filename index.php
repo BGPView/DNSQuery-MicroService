@@ -30,15 +30,15 @@ $searchParams = [
 
 $searchResults = $client->search($searchParams);
 
-$domains = [];
+$records = [];
 foreach ($searchResults['hits']['hits'] as $searchResult) {
-    $domains[$searchResult['_source']['entry']][] = $searchResult['_source']['input'];
+    $records[$searchResult['_source']['entry']][] = $searchResult['_source']['input'];
 }
 
 $data = [
-    'query_time' =>'',
+    'query_time' => $searchResults['took'] . 'ms',
     'total' => $searchResults['hits']['total'],
-    'domains' => $domains,
+    'records' => $domains,
 ];
 
 header('Content-Type: application/json');

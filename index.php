@@ -1,6 +1,6 @@
 <?php
 
-$esHosts = ['es.bgpview.io:80'];
+$esHosts = ['localhost:9200'];
 
 
 use Elasticsearch\ClientBuilder;
